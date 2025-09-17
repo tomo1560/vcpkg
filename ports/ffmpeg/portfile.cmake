@@ -591,6 +591,12 @@ else()
     set(WITH_VAAPI OFF)
 endif()
 
+if("svt-av1" IN_LIST FEATURES)
+    set(OPTIONS "${OPTIONS} --enable-libsvtav1")
+else()
+    set(OPTIONS "${OPTIONS} --disable-libsvtav1")
+endif()
+
 set(OPTIONS_CROSS "--enable-cross-compile")
 
 # ffmpeg needs --cross-prefix option to use appropriate tools for cross-compiling.

@@ -1,7 +1,7 @@
 {
   "name": "ffmpeg",
   "version": "7.1.2",
-  "port-version": 2,
+  "port-version": 3,
   "description": [
     "A library to decode, encode, transcode, mux, demux, stream, filter and play pretty much anything that humans and machines have created.",
     "FFmpeg is the leading multimedia framework, able to decode, encode, transcode, mux, demux, stream, filter and play pretty much anything that humans and machines have created. It supports the most obscure ancient formats up to the cutting edge. No matter if they were designed by some standards committee, the community or a corporation. It is also highly portable: FFmpeg compiles, runs, and passes our testing infrastructure FATE across Linux, Mac OS X, Microsoft Windows, the BSDs, Solaris, etc. under a wide variety of build environments, machine architectures, and configurations."
@@ -57,6 +57,7 @@
             "snappy",
             "soxr",
             "speex",
+            "svt-av1",
             "swresample",
             "swscale",
             "theora",
@@ -155,6 +156,14 @@
             "opencl"
           ],
           "platform": "!uwp & !osx"
+        },
+        {
+          "name": "ffmpeg",
+          "default-features": false,
+          "features": [
+            "svt-av1"
+          ],
+          "platform": "linux | (!osx & !uwp)"
         },
         {
           "name": "ffmpeg",
@@ -620,6 +629,13 @@
       "description": "SFTP protocol via libssh",
       "dependencies": [
         "libssh"
+      ]
+    },
+    "svt-av1": {
+      "description": "Scalable Video Technology AV1 encoding acceleration",
+      "supports": "linux | (!osx & !uwp)",
+      "dependencies": [
+        "svt-av1"
       ]
     },
     "swresample": {
